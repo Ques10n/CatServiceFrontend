@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+      <h2>Регистрация</h2>
+  </div>
+  <div class="card-body">
+      <form action="" 
+      (ngSubmit)="register()" 
+      [formGroup]="form"
+      >
+          <div class="form-group">
+              <label for="username">Имя пользователя</label>
+              <input type="text" formControlName="username" placeholder="Имя пользователя" required 
+                   >
+          </div>
+          <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" formControlName="password" placeholder="Пароль" required 
+                     >
+          </div>
+          <button type="submit">Зарегистрироваться</button>
+      </form>
+  </div>
+</div>
+  

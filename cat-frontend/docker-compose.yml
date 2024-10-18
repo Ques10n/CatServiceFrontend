@@ -1,0 +1,31 @@
+networks:
+  dev:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    depends_on:
+      - django
+      - angular
+    networks:
+      - dev
+
+  django:
+    build:
+      context: C:\Users\Rasim\PycharmProjects\Cats
+    ports:
+      - "8000:8000"
+    networks:
+      - dev
+  
+  angular:
+    build:
+      context: C:\Users\Rasim\cat-frontend
+    ports:
+      - "80:80"
+    networks:
+      - dev

@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header">
+      <h2>Список Котов</h2>
+  </div>
+  <div class="card-body">
+      <ul>
+          @for (cat of cats; track cat.id){
+            <div>
+               Имя: {{ cat.name }} 
+            </div>
+            <div>Возраст: {{ cat.age }}</div>
+            <div>Порода: {{ cat.breed }}</div>
+            <div>Волосатость: {{ cat.hair_type }}</div>    
+            <div>ID: {{ cat.id }}</div> 
+            <button (click)="router.navigate(['/edit-cat', cat.id])">Изменить</button>
+            <form action="" 
+            [formGroup]="delete_form" 
+            (ngSubmit)="deleteCat(cat.id)">
+              <button type="submit">Удалить</button>
+            </form>
+            }
+      </ul>
+      <form 
+      action="" 
+      [formGroup]="form"
+      (ngSubmit) = "createCat()"
+      >
+          <div class="form-group">
+              <label for="name">Имя котика</label>
+              <input 
+                    formControlName="name" type="text" id="name" placeholder="Имя котика" required 
+                    >
+          </div>
+          <div class="form-group">
+              <label for="age">Возраст котика</label>
+              <input 
+                    formControlName="age" type="text" id="age" placeholder="Возраст котика" required 
+                    >
+          </div>
+          <div class="form-group">
+            <label for="breed">Порода котика</label>
+            <input 
+                  formControlName="breed" type="text" id="breed" placeholder="Порода котика" required 
+                  
+                  >
+                  <select name="colors">
+                    <option value="Siamese">Siamese</option>
+                    <option value="Persian" selected>Persian</option>
+                    <option value="Maine Coon">Maine Coon</option>
+                    <option value="Bengal">Bengal</option>
+                  </select>
+                  
+             </div>
+             <div class="form-group">
+                <label for="hair_type">Волосатость котика</label>
+                <input 
+                      formControlName="hair_type" type="text" id="hair_type" placeholder="Волосатость котика" required 
+                      >
+                 </div>
+          <button type="submit">Добавить котика</button>
+      </form>
+  </div>
+</div>
+  

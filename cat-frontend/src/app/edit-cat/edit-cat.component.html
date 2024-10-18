@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+      <h2>Изменить Кота</h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="updateForm" (ngSubmit)="updateCat()">
+        <div class="form-group">
+          <label for="name">Имя котика</label>
+          <input formControlName="name" type="text" id="name" placeholder="Имя котика" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Возраст котика</label>
+          <input formControlName="age" type="number" id="age" placeholder="Возраст котика" required>
+        </div>
+        <div class="form-group">
+          <label for="breed">Порода котика</label>
+          <input formControlName="breed" type="text" id="breed" placeholder="Порода котика" required>
+        </div>
+        <div class="form-group">
+          <label for="hair_type">Волосатость котика</label>
+          <input formControlName="hair_type" type="text" id="hair_type" placeholder="Волосатость котика" required>
+        </div>
+  
+        <button type="submit">Сохранить изменения</button>
+      </form>
+    </div>
+  </div>
